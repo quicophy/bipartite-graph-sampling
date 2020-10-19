@@ -6,6 +6,7 @@ version = "0.2.0"
 
 [dependencies]
 indexmap = {version = "1.6.0", features = ["serde-1"] }
+num-rational = "0.3.0"
 rand = "0.7.3"
 rand_chacha = "0.2.2"
 serde = {version = "1.0.116", features = ["derive"] }
