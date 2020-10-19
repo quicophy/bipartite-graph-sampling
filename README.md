@@ -19,14 +19,14 @@ Then if you go into the directory into which you cloned this project, you can si
 cargo run -- [SOME ARGUMENTS]
 ```
 
-For example, if you want a graph with a variable degree of 5, a constraint degree of 7 and a scaling factor of 10, you can do
+For example, if you want a graph with a 3 variable degree of 5 and 10 constraint degree 6, you can do
 ```bash
-cargo run -- -v 5 -c 7 -s 10
+cargo run -- -n 3 -v 5 -m 10 -c 6 
 ```
 
 If it is too slow, you can add the `--release` option to cargo. Like this
 ```bash
-cargo run --release -- -v 5 -c 7 -s 10
+cargo run --release -- -n 3 -v 5 -m 10 -c 6 
 ```
 
 If you want to see all the options, run
