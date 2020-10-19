@@ -8,7 +8,8 @@ use std::collections::VecDeque;
 pub struct Sampler {
     pub(crate) variable_degree: usize,
     pub(crate) constraint_degree: usize,
-    pub(crate) scaling_factor: usize,
+    pub(crate) number_of_variables: usize,
+    pub(crate) number_of_constraints: usize,
 }
 
 impl Sampler {
@@ -21,15 +22,15 @@ impl Sampler {
     }
 
     pub fn number_of_variables(&self) -> usize {
-        self.constraint_degree * self.scaling_factor
+        self.number_of_variables
     }
 
     pub fn number_of_constraints(&self) -> usize {
-        self.variable_degree * self.scaling_factor
+        self.number_of_constraints
     }
 
     pub fn number_of_edges(&self) -> usize {
-        self.variable_degree * self.constraint_degree * self.scaling_factor
+        self.number_of_variables * self.variable_degree
     }
 
     pub fn variable_degree(&self) -> usize {
@@ -38,10 +39,6 @@ impl Sampler {
 
     pub fn constraint_degree(&self) -> usize {
         self.constraint_degree
-    }
-
-    pub fn scaling_factor(&self) -> usize {
-        self.scaling_factor
     }
 }
 

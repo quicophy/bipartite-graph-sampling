@@ -27,16 +27,23 @@ struct Options {
     )]
     constraint_degree: usize,
 
-    /// If the variable degree is v, the constraint degree is c and
-    /// the scaling factor is s, then the number of variables is c * s and the number of
-    /// constraint is v * s. This construction guarantees regular graphs.
+    /// The number of variables in the graph.
     #[structopt(
-        short = "s",
-        long = "scale",
+        short = "n",
+        long = "numvar",
         default_value = "1",
-        name = "scaling factor"
+        name = "number of variables"
     )]
-    scaling_factor: usize,
+    number_of_variables: usize,
+
+    /// The number of variables in the graph.
+    #[structopt(
+        short = "m",
+        long = "numconst",
+        default_value = "1",
+        name = "number of constraints"
+    )]
+    number_of_constraints: usize,
 
     /// If prodived, the random number generator will be initialized with the given seed.
     /// Else a random seed will be used. If using the same seed and version of bigs, the
@@ -62,7 +69,8 @@ fn sampler(options: &Options) -> Sampler {
     Sampler::builder()
         .variable_degree(options.variable_degree)
         .constraint_degree(options.constraint_degree)
-        .scaling_factor(options.scaling_factor)
+        .number_of_variables(options.number_of_variables)
+        .number_of_constraints(options.number_of_constraints)
         .build()
 }
 

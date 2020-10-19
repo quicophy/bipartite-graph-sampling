@@ -4,7 +4,8 @@ use crate::sampler::Sampler;
 pub struct Builder {
     variable_degree: usize,
     constraint_degree: usize,
-    scaling_factor: usize,
+    number_of_variables: usize,
+    number_of_constraints: usize,
 }
 
 impl Builder {
@@ -18,8 +19,13 @@ impl Builder {
         self
     }
 
-    pub fn scaling_factor(&mut self, factor: usize) -> &mut Self {
-        self.scaling_factor = factor;
+    pub fn number_of_variables(&mut self, n: usize) -> &mut Self {
+        self.number_of_variables = n;
+        self
+    }
+
+    pub fn number_of_constraints(&mut self, n: usize) -> &mut Self {
+        self.number_of_constraints = n;
         self
     }
 
@@ -27,7 +33,8 @@ impl Builder {
         Sampler {
             variable_degree: self.variable_degree,
             constraint_degree: self.constraint_degree,
-            scaling_factor: self.scaling_factor,
+            number_of_variables: self.number_of_variables,
+            number_of_constraints: self.number_of_constraints,
         }
     }
 }
