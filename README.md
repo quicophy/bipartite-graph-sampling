@@ -60,6 +60,7 @@ Thank you!
 - Correct grammatical errors in this README.
 - Update code documentation.
 - Document the output format.
+- Improve error handling.
 
 ### Medium
 - Add some tests. Right now, I create this project by merging bits of tested softwares that I have, but there is no test in this project.
