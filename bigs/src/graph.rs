@@ -8,7 +8,7 @@ pub struct Edge {
     pub constraint: usize,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct Graph {
     variable_neighbors: Vec<IndexSet<usize>>,
     constraint_neighbors: Vec<IndexSet<usize>>,
@@ -64,5 +64,17 @@ impl Graph {
 
     pub fn number_of_constraints(&self) -> usize {
         self.constraint_neighbors.len()
+    }
+
+    pub fn number_of_edges(&self) -> usize {
+        self.edges.len()
+    }
+
+    pub fn variable_neighbors(&self) -> impl Iterator<Item = &IndexSet<usize>> {
+        self.variable_neighbors.iter()
+    }
+
+    pub fn constraint_neighbors(&self) -> impl Iterator<Item = &IndexSet<usize>> {
+        self.constraint_neighbors.iter()
     }
 }
