@@ -19,12 +19,12 @@ fn graphs_have_the_right_parameters() {
         assert_eq!(graph.number_of_constraints(), 8);
         assert_eq!(graph.number_of_edges(), 40);
 
-        for neighbors in graph.variable_neighbors() {
-            assert_eq!(neighbors.len(), 4);
+        for variable in graph.variables() {
+            assert_eq!(variable.degree(), 4);
         }
 
-        for neighbors in graph.constraint_neighbors() {
-            assert_eq!(neighbors.len(), 5);
+        for constraint in graph.constraints() {
+            assert_eq!(constraint.degree(), 5);
         }
     }
 }

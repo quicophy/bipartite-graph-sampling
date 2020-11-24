@@ -1,4 +1,5 @@
-use bigs::{Graph, Sampler};
+use bigs::graph::Graph;
+use bigs::Sampler;
 use rand::{thread_rng, Rng, SeedableRng};
 use rand_chacha::ChaCha20Rng;
 use serde::Serialize;

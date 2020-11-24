@@ -10,7 +10,7 @@
 //!
 //! Graphs are sampled using a [`Sampler`](crate::Sampler) which are instanciated via
 //! the [`builder`](crate::Sampler::builder) method.
-//! Then, any random number generator can be used to sample a [`Graph`](crate::Graph).
+//! Then, any random number generator can be used to sample a [`Graph`](crate::graph::Graph).
 //!
 //! ```
 //! use bigs::Sampler;
@@ -28,8 +28,8 @@
 //! ```
 
 pub mod builder;
-pub mod graph;
-pub mod sampler;
 
-pub use graph::Graph;
-pub use sampler::Sampler;
+pub mod graph;
+
+mod sampler;
+pub use crate::sampler::Sampler;
