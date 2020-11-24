@@ -2,6 +2,8 @@ use bigs::Sampler;
 use rand::rngs::SmallRng;
 use rand::{thread_rng, Rng, SeedableRng};
 
+const NUMBER_OF_RANDOM_TESTS: u32 = 10;
+
 #[test]
 fn graphs_have_the_right_parameters() {
     let sampler = Sampler::builder()
@@ -10,7 +12,7 @@ fn graphs_have_the_right_parameters() {
         .variable_degree(4)
         .constraint_degree(5)
         .build();
-    for _ in 0..5 {
+    for _ in 0..NUMBER_OF_RANDOM_TESTS {
         let graph = sampler.sample_with(&mut thread_rng());
 
         assert_eq!(graph.number_of_variables(), 10);
@@ -40,7 +42,7 @@ fn sampling_is_reproducable() {
         .constraint_degree(3)
         .build();
 
-    for _ in 0..1 {
+    for _ in 0..NUMBER_OF_RANDOM_TESTS {
         let graph = sampler.sample_with(&mut rng);
         let other_graph = sampler.sample_with(&mut other_rng);
         assert_eq!(graph, other_graph);
