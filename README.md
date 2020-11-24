@@ -5,7 +5,7 @@ A BIpartite Graph Sampler!
 It is fast. I don't have any benchmarks, but on my machine I can sample a 7 000 000 nodes graph in roughly 1 or 2 seconds. 
 This come in two versions: a rust library and a command line tool (cli).
 
-### Library
+## Library
 
 I will try my best to publish up-to-date version of the library on [crates.io](https://crates.io/crates/bigs).
 You can use it like any other crates in your own project. 
