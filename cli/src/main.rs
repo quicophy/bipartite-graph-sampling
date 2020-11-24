@@ -22,7 +22,7 @@ struct Options {
     #[structopt(
         short = "c",
         long = "constdegree",
-        default_value = "4",
+        default_value = "3",
         name = "constraint degree"
     )]
     constraint_degree: usize,
@@ -31,7 +31,7 @@ struct Options {
     #[structopt(
         short = "n",
         long = "numvar",
-        default_value = "1",
+        default_value = "3",
         name = "number of variables"
     )]
     number_of_variables: usize,
@@ -40,7 +40,7 @@ struct Options {
     #[structopt(
         short = "m",
         long = "numconst",
-        default_value = "1",
+        default_value = "3",
         name = "number of constraints"
     )]
     number_of_constraints: usize,
