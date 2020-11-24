@@ -14,7 +14,7 @@ how to program in rust to use this tool.
 ## Usage
 
 If you follow in the installation steps, you should also have the rust build tool: cargo.
-Then if you go into the directory into which you cloned this project, you can simply use bigs like this
+Then if you go into the `cli` directory, you can simply use bigs like this
 ```bash
 cargo run -- [SOME ARGUMENTS]
 ```
@@ -39,12 +39,11 @@ cargo run -- --help
 If you are annoyed by the fact that you always have to type `cargo run --release -- [SOME ARGUMENTS]`
 and you would prefer to only type `big [SOME ARGUMENTS]`, here is what you need to do. (This work on Linux and MacOs, sorry for windows users)
 
-- I strongly reccomend moving the project to `$HOME/.bigs`.
-- Compile the program: `cargo build --release`
+- Compile the cli program: `cargo build --release`
 - This should create the folder `target/release/` which contains the `bigs` executable.
 - Add this folder to your path. For example, if using bash (or zsh),
 add this line to your .bashrc (or .zshrc): `export PATH=path/to/target/release:$PATH`.
-If you followed my suggestion, this is `export PATH=~/.bigs/target/release:$PATH`.
+This is `export PATH=path_where_you_cloned/target/release:$PATH`.
 -That is it! You can now run the bigs command anywhere and anytime. If it doesn't work, try 
 restarting your terminal.
 
