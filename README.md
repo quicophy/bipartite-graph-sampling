@@ -1,17 +1,25 @@
-#Bigs
+# bigs
 
 A BIpartite Graph Sampler!
 
-It is fast. I don't have any benchmarks, but on my machine I can sample a 7 000 000 nodes graph in roughly 1 or 2 seconds.
+It is fast. I don't have any benchmarks, but on my machine I can sample a 7 000 000 nodes graph in roughly 1 or 2 seconds. 
+This come in two versions: a rust library and a command line tool (cli).
 
-## Installation
+### Library
+
+I will try my best to publish up-to-date version of the library on [crates.io](https://crates.io/crates/bigs).
+You can use it like any other crates in your own project. 
+
+## CLI 
+
+### Installation
 
 - If you don't have a rust compiler, [install it](https://www.rust-lang.org/tools/install). Don't worry, you don't need to know 
 how to program in rust to use this tool.
 - Clone this repository.
 - That is it!
 
-## Usage
+### Usage
 
 If you follow in the installation steps, you should also have the rust build tool: cargo.
 Then if you go into the `cli` directory, you can simply use bigs like this
@@ -34,7 +42,7 @@ If you want to see all the options, run
 cargo run -- --help
 ```
 
-## Pro tips
+### Pro tips
 
 If you are annoyed by the fact that you always have to type `cargo run --release -- [SOME ARGUMENTS]`
 and you would prefer to only type `big [SOME ARGUMENTS]`, here is what you need to do. (This work on Linux and MacOs, sorry for windows users)
