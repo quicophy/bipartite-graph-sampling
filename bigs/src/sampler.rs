@@ -35,7 +35,8 @@ use std::collections::VecDeque;
 ///     .variable_degree(3)
 ///     .number_of_constraints(3)
 ///     .constraint_degree(5)
-///     .build();
+///     .build()
+///     .unwrap();
 ///
 /// let graph = sampler.sample_with(&mut thread_rng());
 ///
@@ -50,19 +51,19 @@ use std::collections::VecDeque;
 ///     }
 /// ```
 ///
-/// However, this will panic since the parameters do not define
+/// However, this will return an error since the parameters do not define
 /// a regular graph.
 ///
-/// ```should_panic
+/// ```
 /// # use bigs::Sampler;
-/// use rand::thread_rng;
-///
 /// let sampler = Sampler::builder()
 ///     .number_of_variables(5)
 ///     .variable_degree(3)
 ///     .number_of_constraints(3)
 ///     .constraint_degree(3)
 ///     .build();
+///
+/// assert!(sampler.is_err());
 /// ```
 ///
 /// # Reproductibility
@@ -80,7 +81,8 @@ use std::collections::VecDeque;
 ///     .variable_degree(3)
 ///     .number_of_constraints(3)
 ///     .constraint_degree(5)
-///     .build();
+///     .build()
+///     .unwrap();
 ///
 /// // Create two rngs with the same seed.
 /// let mut rng = SmallRng::seed_from_u64(123);

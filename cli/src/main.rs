@@ -1,3 +1,4 @@
+use bigs::error::InvalidParameters;
 use bigs::graph::Graph;
 use bigs::Sampler;
 use rand::{thread_rng, Rng, SeedableRng};
@@ -61,12 +62,26 @@ struct Options {
 fn main() {
     let mut options = Options::from_args();
     let sampler = sampler(&options);
-    let mut rng = rng(&mut options);
-    let graph = sampler.sample_with(&mut rng);
-    save_or_display(graph, options);
+    match sampler {
+        Ok(sampler) => {
+            let mut rng = rng(&mut options);
+            let graph = sampler.sample_with(&mut rng);
+            save_or_display(graph, options);
+        }
+        Err(error) => {
+            println!("Can't build a regular graph since n * v != m * c.");
+            println!("n = {} (number of variables)", error.number_of_variables);
+            println!("v = {} (variable's degree)", error.variable_degree);
+            println!(
+                "m = {} (number of constraints)",
+                error.number_of_constraints
+            );
+            println!("c = {} (constraint's degree)", error.constraint_degree);
+        }
+    }
 }
 
-fn sampler(options: &Options) -> Sampler {
+fn sampler(options: &Options) -> Result<Sampler, InvalidParameters> {
     Sampler::builder()
         .variable_degree(options.variable_degree)
         .constraint_degree(options.constraint_degree)

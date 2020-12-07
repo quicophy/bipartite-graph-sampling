@@ -11,7 +11,8 @@ fn graphs_have_the_right_parameters() {
         .number_of_constraints(8)
         .variable_degree(4)
         .constraint_degree(5)
-        .build();
+        .build()
+        .unwrap();
     for _ in 0..NUMBER_OF_RANDOM_TESTS {
         let graph = sampler.sample_with(&mut thread_rng());
 
@@ -40,7 +41,8 @@ fn sampling_is_reproducable() {
         .number_of_constraints(15)
         .variable_degree(5)
         .constraint_degree(3)
-        .build();
+        .build()
+        .unwrap();
 
     for _ in 0..NUMBER_OF_RANDOM_TESTS {
         let graph = sampler.sample_with(&mut rng);
@@ -50,12 +52,12 @@ fn sampling_is_reproducable() {
 }
 
 #[test]
-#[should_panic]
-fn panic_if_parameters_do_not_fit() {
-    Sampler::builder()
+fn error_if_parameters_do_not_fit() {
+    let sampler = Sampler::builder()
         .number_of_variables(10)
         .number_of_constraints(10)
         .variable_degree(3)
         .constraint_degree(2)
         .build();
+    assert!(sampler.is_err());
 }

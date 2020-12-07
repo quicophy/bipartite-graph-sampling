@@ -21,14 +21,15 @@
 //!     .number_of_constraints(6)
 //!     .variable_degree(3)
 //!     .constraint_degree(5)
-//!     .build();
+//!     .build() // Returns an error if the parameters are invalid.
+//!     .unwrap();
 //!
 //! let graph = sampler.sample_with(&mut thread_rng());
 //! let other_graph = sampler.sample_with(&mut thread_rng());
 //! ```
 
 pub mod builder;
-
+pub mod error;
 pub mod graph;
 
 mod sampler;
