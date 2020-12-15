@@ -313,6 +313,7 @@ impl Graph {
 ///
 /// This is created via the [`Graph::variables`](Graph::variables)
 /// or the [`Graph::constraints`](Graph::constraints) methods.
+#[derive(Debug, Clone)]
 pub struct Nodes<'g> {
     iter: std::iter::Enumerate<std::slice::Iter<'g, IndexSet<usize>>>,
     kind: NodeKind,
