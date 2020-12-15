@@ -333,6 +333,7 @@ impl<'g> Iterator for Nodes<'g> {
 /// A node in the graph.
 ///
 /// This is used to iterates throught the nodes of a graph.
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Node<'g> {
     neighbors: &'g IndexSet<usize>,
     label: usize,
@@ -372,7 +373,7 @@ impl<'g> Node<'g> {
     }
 }
 
-#[derive(Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 enum NodeKind {
     Variable,
     Constraint,
