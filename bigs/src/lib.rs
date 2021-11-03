@@ -34,3 +34,5 @@ pub mod graph;
 
 mod sampler;
 pub use crate::sampler::Sampler;
+
+pub use graph::{Edge, Graph};
