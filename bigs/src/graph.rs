@@ -96,6 +96,35 @@ impl Graph {
         }
     }
 
+    /// Creates a complete graph
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// use bigs::graph::{Edge, Graph};
+    ///
+    /// let mut graph = Graph::complete_graph(3, 2);
+    /// assert_eq!(graph.number_of_variables(), 3);
+    /// assert_eq!(graph.number_of_constraints(), 2);
+    /// assert_eq!(graph.number_of_edges(), 6);
+    ///
+    /// assert!(graph.contains_edge(Edge::new(0, 0)));
+    /// assert!(graph.contains_edge(Edge::new(1, 0)));
+    /// assert!(graph.contains_edge(Edge::new(2, 0)));
+    /// assert!(graph.contains_edge(Edge::new(0, 1)));
+    /// assert!(graph.contains_edge(Edge::new(1, 1)));
+    /// assert!(graph.contains_edge(Edge::new(2, 1)));
+    /// ```
+    pub fn complete_graph(number_of_variables: usize, number_of_constraints: usize) -> Self {
+        let mut graph = Self::new();
+        for variable in 0..number_of_variables {
+            for constraint in 0..number_of_constraints {
+                graph.insert_edge(Edge::new(variable, constraint));
+            }
+        }
+        graph
+    }
+
     /// Checks if the given edge is in the graph.
     pub fn contains_edge(&self, edge: Edge) -> bool {
         self.edges.contains(&edge)
