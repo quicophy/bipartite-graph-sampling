@@ -2,7 +2,7 @@
 name = "bigs"
 version = "0.3.0"
 authors = ["maxtremblay <matrem@protonmail.com>"]
-edition = "2018"
+edition = "2021"
 description = "A bipartite graph sampler"
 license = "MIT OR Apache-2.0"
 keywords = ["graph", "sampling", "sat", "bipartite"]
